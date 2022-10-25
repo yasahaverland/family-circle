@@ -20,6 +20,12 @@ For this project, I want to focus on the front-end. Learn and implement technolo
 *Django Augh
 *MongoDB
 
+# User Stories
+*As a user I want to be abble to login and out of my account
+*As a user I want My profile to be privete
+*As a user I want only allowed users to access my information
+*As a user I want allowed users to be abble to add pictures and recepies
+*As a user I want to be abble to view and edit recepies for my child
 
 # Schadule
 
