@@ -68,7 +68,6 @@ export default function Login(props) {
                 </div>
 
             </div>
-            Login
         </div>
     )
 }
