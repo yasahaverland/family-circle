@@ -4,6 +4,7 @@ import { Form, useNavigate } from 'react-router-dom'
 import { MdDelete } from 'react-icons/md'
 import Spinner from './Spinner'
 import { client } from '../client'
+import { collections } from "../utils/data"
 
 export default function NewImgPost({user}) {
 
@@ -11,9 +12,9 @@ export default function NewImgPost({user}) {
     const [about, setAbout] = useState('')
     const [loading, setLoading] = useState(false)
     const [fields, setFields] = useState()
-    const [collection, setCollection] = useState([])
     const [imageAsset, setImageAsset] = useState('')
     const [wrongImageType, setWrongImageType] = useState(false)
+    const [collection, setCollection] = useState([])
 
     const navigate = useNavigate()
 
@@ -71,7 +72,8 @@ export default function NewImgPost({user}) {
            collection,
           };
           client.create(doc).then(() => {
-            navigate('/');
+            navigate('/')
+            collections.push(collection)
           });
         } else {
           setFields(true);
@@ -84,7 +86,8 @@ export default function NewImgPost({user}) {
           );
         }
       }
-      
+           
+    console.log('COLECTIONS', collection)
     return(
         <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5"> 
             {fields && (

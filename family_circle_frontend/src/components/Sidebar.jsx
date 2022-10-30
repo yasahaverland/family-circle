@@ -2,16 +2,14 @@ import React from "react";
 import {NavLink, Link} from 'react-router-dom'
 import { RiHomeFill } from 'react-icons/ri'
 import { IoIosArrowForward } from 'react-icons/io'
+import  { FaCarrot }  from 'react-icons/fa'
+import { collections } from '../utils/data'
 
 import logo from '../assets/logo.png'
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 tex-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
-const collections = [
-    {name: 'Fist Birthday'},
-    {name: 'Pumpkin patch 2022'},
-    {name: 'Silly moments'},
-]
+
 export default function Sidebar({ user, closeToggle}) {
 
     const handleCloseSidebar = () => {
@@ -37,6 +35,16 @@ export default function Sidebar({ user, closeToggle}) {
                         <RiHomeFill />
                         Home
                     </NavLink>
+
+                    <NavLink 
+                        to='nutrition' 
+                        className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
+                        onClick={handleCloseSidebar}
+                    >
+                        <FaCarrot />
+                        Nutrition
+                    </NavLink>
+
                     <h3 className='mt-2 px-5 text-base 2xl:text-xl'>Your Collections</h3>
                     {collections.slice(0, collections.length).map((collection) => (
                         <NavLink

@@ -10,6 +10,9 @@ import Posts from './Posts'
 import { useState } from 'react'
 import { useEffect, useRef } from 'react'
 import { userQuery } from '../utils/data'
+import Nutrition from './Nutrition'
+import NutritionInfo from '../components/NutritionInfo'
+import Recipes from '../components/Recipes'
 
 export default function Home(props) {
 
@@ -62,7 +65,9 @@ export default function Home(props) {
             <div className='pb-2 flex-1 h-screen overflow-y-scroll' ref={scrollRef}>
                 <Routes>
                     <Route path='/user-profile/:userId' element={<UserProfile user={user && user} />}/>
-
+                    <Route path='/nutrition' element={<Nutrition user={user} />}/>
+                    <Route path='/nutrition/nutrition-info' element={<NutritionInfo />}/>
+                    <Route path='/nutrition/recipes' element={<Recipes />} />
                     <Route path='/*' element={<Posts user={user && user} />}/>
                 </Routes>
             </div>

@@ -11,6 +11,8 @@ function App() {
   const [user, setUser] = useState({})
   
   const navigate = useNavigate()
+
+
 // create or get user = if user is already in database, get it, but if user is NOT in database, create one!
 // functions is invoked everytime user logs in
   const createOrGetUser = async(response) => {
@@ -33,6 +35,12 @@ function App() {
         })
 
   }
+
+
+  
+  useEffect(() => {
+    if(!user) navigate('/login')  
+  },[])
   
   return (
    <GoogleOAuthProvider 

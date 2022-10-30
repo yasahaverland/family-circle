@@ -10,6 +10,7 @@ export default function Feed({user}) {
     const [loading, setLoading] = useState(false);
     const [ postImgs, setPostImgs] = useState();
     const { collectionId } = useParams();
+
     useEffect(() => {
         if (collectionId) {
           setLoading(true);
@@ -28,6 +29,8 @@ export default function Feed({user}) {
         }
        
     }, [collectionId]);
+
+    console.log(collectionId)
 
     if (loading) {
         return (

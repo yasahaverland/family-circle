@@ -8,6 +8,12 @@ export const userQuery = (userId) => {
     return query;
 }
 
+export const collections = [
+  {name: 'First Birthday'},
+  {name: 'Pumpkin patch 2022'},
+  {name: 'Silly moments'},
+]
+
 export const feedQuery = `*[_type == 'imgpost'] | order(_createdAt desc) {
     image{
       asset->{
@@ -66,7 +72,7 @@ export const postDetailQuery = (postId) => {
         return query;
       };
       
-    export const postDetailMorePinQuery = (post) => {
+export const postDetailMorePinQuery = (post) => {
         const query = `*[_type == 'imgpost' && collection == '${post.collection}' && _id != '${post._id}' ]{
           image{
             asset->{
