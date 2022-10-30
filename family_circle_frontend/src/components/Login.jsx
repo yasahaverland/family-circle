@@ -1,10 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { FcGoogle } from 'react-icons/fc'
 import background from '../assets/treebg.jpg'
 import logo from '../assets/logo_name_white.png'
-import { useEffect, useState } from 'react'
-import jwt_decode from 'jwt-decode'
+
 import { GoogleLogin, googleLogout } from '@react-oauth/google'
 
 export default function Login(props) {

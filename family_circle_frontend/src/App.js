@@ -27,8 +27,6 @@ function App() {
     }
 
     setUser(userObject)
-    console.log(doc)
-    console.log(userObject)
     client.createIfNotExists(doc)
         .then(() => {
             navigate('/', { replace: true})

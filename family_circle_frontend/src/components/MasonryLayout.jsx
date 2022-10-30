@@ -11,11 +11,11 @@ const breakpointColumnsObj = {
     500: 1,
   };
 
-export default function MasonryLayout ({postImgs}) {
-    console.log({postImgs})
+export default function MasonryLayout ({postImgs, user}) {
+    console.log(user)
     return(
         <Masonry className="flex animate-slide-fwd" breakpointCols={breakpointColumnsObj}>
-            {postImgs?.map((postImg) => <Post key={postImg._id} postImg={postImg} className="w-max" />)}
+            {postImgs?.map((postImg) => <Post  key={postImg._id} postImg={postImg} user={user} className="w-max" />)}
         </Masonry>
     )
 }

@@ -6,11 +6,10 @@ import { feedQuery, searchQuery } from '../utils/data';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
-export default function Feed() {
+export default function Feed({user}) {
     const [loading, setLoading] = useState(false);
     const [ postImgs, setPostImgs] = useState();
     const { collectionId } = useParams();
-
     useEffect(() => {
         if (collectionId) {
           setLoading(true);
@@ -24,7 +23,6 @@ export default function Feed() {
     
           client.fetch(feedQuery).then((data) => {
             setPostImgs(data);
-            console.log(data)
             setLoading(false);
           });
         }
@@ -39,7 +37,7 @@ export default function Feed() {
     return(
             <div>
                 {postImgs && (
-                    <MasonryLayout postImgs={postImgs} />
+                    <MasonryLayout user={user} postImgs={postImgs} />
                 )}
             </div>
     )
