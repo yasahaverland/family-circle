@@ -10,11 +10,11 @@ export default function NewImgPost({user}) {
 
     const [title, setTitle] = useState('')
     const [about, setAbout] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [fields, setFields] = useState()
-    const [imageAsset, setImageAsset] = useState('')
+    const [loading, setLoading] = useState(false) 
+    const [fields, setFields] = useState(false)
+    const [imageAsset, setImageAsset] = useState()
     const [wrongImageType, setWrongImageType] = useState(false)
-    const [collection, setCollection] = useState([])
+    const [collection, setCollection] = useState(null)
 
     const navigate = useNavigate()
 
@@ -31,11 +31,12 @@ export default function NewImgPost({user}) {
 
     // sanity sintax -- upload done by sanity
     const uploadImage = (e) => {
-        const { type, name } = e.target.files[0];
+        const { type, name } = e.target.files[0]
         // uploading asset to sanity
-        if (type === 'image/png' || type === 'image/svg' || type === 'image/jpeg' || type === 'image/gif' || type === 'image/tiff') {
-          setWrongImageType(false);
-          setLoading(true);
+        if(type === 'image/png' || type === 'image/svg' || type === 'image/jpeg' || type === 'image/gif' || type === 'image/tiff') {
+          setWrongImageType(false)
+          setLoading(true)
+        //   sanity sintax
           client.assets
             .upload('image',  e.target.files[0], { contentType: type, filename: name })
             .then((document) => {
@@ -52,7 +53,7 @@ export default function NewImgPost({user}) {
       }
 
       const savePost = () => {
-        if (title && about && imageAsset?._id && collection) {
+        if(title && about && imageAsset?._id && collection) {
           const doc = {
             _type: 'imgpost',
             title,
@@ -73,7 +74,6 @@ export default function NewImgPost({user}) {
           };
           client.create(doc).then(() => {
             navigate('/')
-            collections.push(collection)
           });
         } else {
           setFields(true);
@@ -83,7 +83,7 @@ export default function NewImgPost({user}) {
               setFields(false);
             },
             2000,
-          );
+          )
         }
       }
            
@@ -100,7 +100,6 @@ export default function NewImgPost({user}) {
                         {loading && (<Spinner />)}
                         {wrongImageType && (<p> wrong file type.</p>)}
                         {!imageAsset ? (
-                            // eslint-disable-next-line jsx-a11y/label-has-associated-control
                             <label>
                                 <div className="flex flex-col items-center justify-center h-full">
                                     <div className="flex flex-col justify-center items-center">
@@ -110,14 +109,14 @@ export default function NewImgPost({user}) {
                                         <p className="text-lg">Click to upload</p>
                                     </div>
                                     <p className="mt-32 text-gray-400">
-                                        Use high-quality JPG, JPEG, SVG, PNG, GIF or TIFF less than 20MB
+                                        Use high-quality JPG, SVG, PNG, GIF or TIFF less than 20MB
                                     </p>
                                 </div>
                                 <input
                                     type="file"
                                     name="upload-image"
                                     onChange={uploadImage}
-                                    className="w-0 h-0"
+                                    className="w-10 h-10"
                                  />
                             </label>
                         ) : (
@@ -171,7 +170,7 @@ export default function NewImgPost({user}) {
                         className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
                     />
                     <div className="flex flex-col">
-                        <div>
+                        {/* <div>
                             <p className="mb-2 font-semibold text:lg sm:text-xl">Add to a Collection</p>
                             <select
                                 onChange={(e) => {
@@ -186,7 +185,7 @@ export default function NewImgPost({user}) {
                                     </option>
                                     ))}
                             </select>
-                        </div>
+                        </div> */}
                         <div className="flex justify-end items-end mt-5">
                             <button
                                 type="button"

@@ -39,7 +39,9 @@ function App() {
 
   
   useEffect(() => {
-    if(!user) navigate('/login')  
+    if(!user){
+      navigate('/login')
+    }   
   },[])
   
   return (
@@ -54,7 +56,7 @@ function App() {
       >
     <Routes>
         <Route path='login' element={<Login createOrGetUser={createOrGetUser} user={user} />}/>
-        <Route path='/*' element={<Home user={user} />}/>
+        <Route path='/*' element={<Home createOrGetUser={createOrGetUser}  user={user} />}/>
     </Routes>
   </GoogleOAuthProvider>
   );

@@ -1,3 +1,5 @@
+const { FaBluetooth } = require('react-icons/fa');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
@@ -41,6 +43,7 @@ module.exports = {
       },
       textColor: {
         lightGray: '#F1EFEE',
+        blue: '#20abdf',
         primary: '#FAFAFA',
         secColor: '#efefef',
         navColor: '#BEBEBE',

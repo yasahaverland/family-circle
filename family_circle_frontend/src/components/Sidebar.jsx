@@ -5,7 +5,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import  { FaCarrot }  from 'react-icons/fa'
 import { collections } from '../utils/data'
 
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_name.png'
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 tex-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
@@ -24,7 +24,7 @@ export default function Sidebar({ user, closeToggle}) {
                     className='flex px-5 gap-2 my-6 pt-1 w-190 items-center'
                     onClick={handleCloseSidebar}
                 >
-                    <img src={logo} alt='logo' className='w-20' />
+                    <img src={logo} alt='logo' className='w-30' />
                 </Link>
                 <div className='flex flex-col gap-5'>
                     <NavLink 

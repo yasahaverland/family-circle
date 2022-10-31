@@ -1,26 +1,32 @@
 import React from 'react'
 import  {HiMenu}  from 'react-icons/hi'
 import { AiFillCloseCircle } from 'react-icons/ai'
-import {Link, Route, Routes} from 'react-router-dom'
+import {Link, Route, Routes, useNavigate} from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import UserProfile from '../components/UserProfile'
 import { client } from '../client'
 import logoName from '../assets/logo_name.png'
 import Posts from './Posts'
 import { useState } from 'react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef} from 'react'
 import { userQuery } from '../utils/data'
 import Nutrition from './Nutrition'
 import NutritionInfo from '../components/NutritionInfo'
 import Recipes from '../components/Recipes'
+import RecipesDetails from '../components/RecipeDetails'
 
 export default function Home(props) {
 
     const [toggleSidebar, setToggleSidebar] = useState(false)
     const [user, setUser] = useState()
     const scrollRef = useRef(null)
+      
+    const navigate = useNavigate()
     
+    const testUser = localStorage.getItem('user')
     const userInfo = props.user
+    console.log(testUser.image)
+
 
    useEffect(() => {
         const query = userQuery(userInfo?.sub);
@@ -35,6 +41,7 @@ export default function Home(props) {
         scrollRef.current.scrollTo(0, 0)
    },[]) 
 
+      
     return (
         <div className='flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out'>
             {/* DESKTOP SIDE BAR */}
@@ -68,6 +75,7 @@ export default function Home(props) {
                     <Route path='/nutrition' element={<Nutrition user={user} />}/>
                     <Route path='/nutrition/nutrition-info' element={<NutritionInfo />}/>
                     <Route path='/nutrition/recipes' element={<Recipes />} />
+                    <Route path='/nutrition/recipes/:recipeId' element={<RecipesDetails />} />
                     <Route path='/*' element={<Posts user={user && user} />}/>
                 </Routes>
             </div>

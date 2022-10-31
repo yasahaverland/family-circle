@@ -14,6 +14,30 @@ export const collections = [
   {name: 'Silly moments'},
 ]
 
+export const recipeQuery = `*[_type == 'recipe'] | order(_createdAt desc) {
+  title,
+  image{
+    asset->{
+      url
+    }
+  },
+      _id,
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+      save[]{
+        _key,
+        postedBy->{
+          _id,
+          userName,
+          image
+        },
+      },
+    } `
+
+
 export const feedQuery = `*[_type == 'imgpost'] | order(_createdAt desc) {
     image{
       asset->{
@@ -34,7 +58,7 @@ export const feedQuery = `*[_type == 'imgpost'] | order(_createdAt desc) {
             image
           },
         },
-      } `;
+      } `
 
 export const postDetailQuery = (postId) => {
     const query = `*[_type == 'imgpost' && _id == '${postId}']{
