@@ -7,8 +7,8 @@ import { collections } from '../utils/data'
 
 import logo from '../assets/logo_name.png'
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 tex-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
+const isNotActiveStyle = 'flex items-center px-5 gap-3 tex-gray-500 hover:text-navy transition-all duration-200 ease-in-out capitalize'
+const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold text-navy border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
 
 export default function Sidebar({ user, closeToggle}) {
 
@@ -27,7 +27,7 @@ export default function Sidebar({ user, closeToggle}) {
                     <img src={logo} alt='logo' className='w-30' />
                 </Link>
                 <div className='flex flex-col gap-5'>
-                    <NavLink 
+                    <NavLink
                         to='/' 
                         className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
                         onClick={handleCloseSidebar}
@@ -45,7 +45,7 @@ export default function Sidebar({ user, closeToggle}) {
                         Nutrition
                     </NavLink>
 
-                    <h3 className='mt-2 px-5 text-base 2xl:text-xl'>Your Collections</h3>
+                    <h3 className='mt-2 px-5 text-base font-bold text-navy 2xl:text-xl'>Your Collections</h3>
                     {collections.slice(0, collections.length).map((collection) => (
                         <NavLink
                             to={`/collection/${collection.name}`}

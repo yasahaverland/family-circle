@@ -44,6 +44,7 @@ module.exports = {
       textColor: {
         lightGray: '#F1EFEE',
         blue: '#20abdf',
+        navy: '#0f4299',
         primary: '#FAFAFA',
         secColor: '#efefef',
         navColor: '#BEBEBE',
@@ -51,6 +52,7 @@ module.exports = {
       backgroundColor: {
         mainColor: '#FBF8F9',
         secondaryColor: '#F0F0F0',
+        navy: '#0f4299',
         blackOverlay: 'rgba(0, 0 ,0 ,0.7)',
       },
       keyframes: {

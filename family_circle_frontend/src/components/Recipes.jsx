@@ -26,6 +26,7 @@ export default function Recipes({user}){
       }
     return(
         <div>
+            <h1 className='flex p-3 text-3xl font-extrabold text-navy'>Recipes</h1>
             {recipes && <RecipesLayout user={user && user} recipes={recipes} /> }
 
            <div className='flex justify-center bg-gray-200 m-10 p-4 mb-20 items-center flex-col border-2 border-solid rounded-lg border-gray-300 p-3'>

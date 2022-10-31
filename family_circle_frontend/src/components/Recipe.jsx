@@ -29,6 +29,7 @@ export default function Recipe(recipe){
     console.log(image)
 
     return(
+        <>
         <div>
             <div 
                 onMouseEnter={() => setRecipeHovered(true)}
@@ -36,7 +37,7 @@ export default function Recipe(recipe){
                 onClick={() => navigate(`/nutrition/recipes/${_id}`)}
                 className=' relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out'
             >
-                <img className='rounded-lg w-full' alt='recipe pic' src={(urlFor(image).width(350).url())} />    
+                <img className='rounded-lg p-6 w-full' alt='recipe pic' src={(urlFor(image).width(350).url())} />    
                 {recipeHovered && (
                     <div
                     className='absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50'
@@ -73,5 +74,6 @@ export default function Recipe(recipe){
             
             
         </div>
+        </>
     )
 }

@@ -12,6 +12,7 @@ export const collections = [
   {name: 'First Birthday'},
   {name: 'Pumpkin patch 2022'},
   {name: 'Silly moments'},
+  {name: 'Brazil'}
 ]
 
 export const recipeQuery = `*[_type == 'recipe'] | order(_createdAt desc) {

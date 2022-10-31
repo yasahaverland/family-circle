@@ -12,7 +12,7 @@ export default function NavBar({ user }) {
                     <Link to={`user-profile/${user?._id}`} className='hidden md:block'>
                         <img src={user.image} alt='user-pic' className='w-12 h-12 rounded-full ' />
                     </Link>
-                    <Link to='/upload-new-img' className='bg-black text-white rounded-full w-12 h-12 md:w-12 md:h-12 flex justify-center items-center'>
+                    <Link to='/upload-new-img' className='bg-navy text-white rounded-full w-12 h-12 md:w-12 md:h-12 flex justify-center items-center'>
                         <IoMdAdd />
                     </Link>
                 </div>

@@ -52,14 +52,14 @@ export default function UserProfile({user}) {
       }
     
     if (!user) return <Spinner message="Loading profile" />
-    
+
     return(
         <div className="relative pb-2 h-full justify-center items-center">
             <div className="flex flex-col pb-5">
                 <div className="flex flex-col justify-center items-center">
                     <img
                         className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
-                        src="https://source.unsplash.com/1600x900/?nature,photography,technology"
+                        src='https://www.conserve-energy-future.com/wp-content/uploads/2020/07/Sunflower.jpg'
                         alt="user-pic"
                     />
                     <img

@@ -59,7 +59,7 @@ export default function RecipesDetails({user}){
             <div className="flex xl:flex-row flex-col m-auto bg-white" style={{ maxWidth: '1500px', borderRadius: '32px' }}>
                 <div className="flex justify-center items-center md:items-start flex-initial">
                     <img
-                        className="rounded-t-3xl rounded-b-lg"
+                        className="rounded-t-3xl p-6 rounded-b-lg"
                         src={(recipeDetail?.image && urlFor(recipeDetail?.image).url())}
                         alt="user-post"
                     />
@@ -80,7 +80,9 @@ export default function RecipesDetails({user}){
                         <h1 className="text-4xl font-bold break-words mt-3">
                             {recipeDetail.title}
                         </h1>
+                        <h2>{recipeDetail.category}</h2>
                         <p className="mt-3 flex justify-center bg-gray-200 m-10 p-4 mb-20 items-center flex-col border-2 border-solid rounded-lg border-gray-300 p-3">{recipeDetail.about}</p>
+                    
                     </div>
                     <h2 className="mt-5 text-2xl">Comments</h2>
                     <div className="max-h-370 overflow-y-auto">

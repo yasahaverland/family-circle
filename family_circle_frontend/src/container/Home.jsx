@@ -50,7 +50,7 @@ export default function Home(props) {
             </div>
             <div className='flex md:hidden flex-row'>
                 <div className='p-2 w-full flex flex-row justify-between items-center shadow-md'>
-                    <HiMenu fontSize={40} className='cursor-pointer' onClick={() => setToggleSidebar(true)} />
+                    <HiMenu fontSize={40} className='cursor-pointer text-navy' onClick={() => setToggleSidebar(true)} />
                 <Link to='/'>
                     <img src={logoName} alt='family circle logo' className='w-28' />
                 </Link>
