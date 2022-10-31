@@ -37,6 +37,29 @@ export const recipeQuery = `*[_type == 'recipe'] | order(_createdAt desc) {
       },
     } `
 
+    export const recipeDetailQuery = (recipeId) => {
+      const query = `*[_type == 'recipe' && _id == '${recipeId}']{
+            image{
+              asset->{
+                url
+              }
+            },
+            _id,
+            title, 
+            about,
+            category,
+            comments[]{
+              comment,
+              _key,
+              postedBy->{
+                _id,
+                userName,
+                image
+              },
+            }
+          }`
+          return query
+        }
 
 export const feedQuery = `*[_type == 'imgpost'] | order(_createdAt desc) {
     image{

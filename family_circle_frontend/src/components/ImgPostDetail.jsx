@@ -1,44 +1,43 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react"
 
-import { MdDownloadForOffline } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { MdDownloadForOffline } from 'react-icons/md'
+import { Link, useParams } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
-import { client, urlFor } from '../client';
-import MasonryLayout from './MasonryLayout';
-import { postDetailMorePinQuery, postDetailQuery } from '../utils/data';
-import Spinner from './Spinner';
+import { client, urlFor } from '../client'
+import { postDetailMorePinQuery, postDetailQuery } from '../utils/data'
+import Spinner from './Spinner'
 
 export default function ImgPostDetail({ user }) {
-    const { imgpostId } = useParams();
-    const [posts, setPosts] = useState();
-    const [postDetail, setPostDetail] = useState();
-    const [comment, setComment] = useState('');
-    const [addingComment, setAddingComment] = useState(false);
+    const { imgpostId } = useParams()
+    const [posts, setPosts] = useState()
+    const [postDetail, setPostDetail] = useState()
+    const [comment, setComment] = useState('')
+    const [addingComment, setAddingComment] = useState(false)
     
     const fetchPostDetails = () => {
-        const query = postDetailQuery(imgpostId);
+        const query = postDetailQuery(imgpostId)
     
         if (query) {
           client.fetch(`${query}`).then((data) => {
             setPostDetail(data[0])
             if (data[0]) {
-              const query1 = postDetailMorePinQuery(data[0]);
+              const query1 = postDetailMorePinQuery(data[0])
               client.fetch(query1).then((res) => {
-                setPosts(res);
-              });
+                setPosts(res)
+              })
             }
-          });
+          })
         }
-      };
+      }
     
     useEffect(() => {
-        fetchPostDetails();
-      }, [imgpostId]);
+        fetchPostDetails()
+      }, [imgpostId])
     
     const addComment = () => {
         if(comment) {
-          setAddingComment(true);
+          setAddingComment(true)
     
           client
             .patch(imgpostId )
@@ -46,9 +45,9 @@ export default function ImgPostDetail({ user }) {
             .insert('after', 'comments[-1]', [{ comment, _key: uuidv4(), postedBy: { _type: 'postedBy', _ref: user._id } }])
             .commit()
             .then(() => {
-              fetchPostDetails();
-              setComment('');
-              setAddingComment(false);
+              fetchPostDetails()
+              setComment('')
+              setAddingComment(false)
             })
         }
       }
@@ -56,7 +55,7 @@ export default function ImgPostDetail({ user }) {
       if (!postDetail) {
         return (
           <Spinner message="Loading Post" />
-        );
+        )
       }
     return(
         <>

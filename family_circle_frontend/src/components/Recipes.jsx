@@ -6,7 +6,7 @@ import RecipesLayout from "./RecipesLayout"
 import Spinner from './Spinner'
 
 
-export default function Recipes(){
+export default function Recipes({user}){
     const [loading, setLoading] = useState(false)
     const [ recipes, setRecipes] = useState()
 
@@ -26,7 +26,7 @@ export default function Recipes(){
       }
     return(
         <div>
-            {recipes && <RecipesLayout recipes={recipes} /> }
+            {recipes && <RecipesLayout user={user && user} recipes={recipes} /> }
 
            <div className='flex justify-center bg-gray-200 m-10 p-4 mb-20 items-center flex-col border-2 border-solid rounded-lg border-gray-300 p-3'>
                 <p>

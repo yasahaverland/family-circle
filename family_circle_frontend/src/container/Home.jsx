@@ -74,8 +74,8 @@ export default function Home(props) {
                     <Route path='/user-profile/:userId' element={<UserProfile user={user && user} />}/>
                     <Route path='/nutrition' element={<Nutrition user={user} />}/>
                     <Route path='/nutrition/nutrition-info' element={<NutritionInfo />}/>
-                    <Route path='/nutrition/recipes' element={<Recipes />} />
-                    <Route path='/nutrition/recipes/:recipeId' element={<RecipesDetails />} />
+                    <Route path='/nutrition/recipes' element={<Recipes user={user && user} />} />
+                    <Route path='/nutrition/recipes/:recipeId' element={<RecipesDetails user={user && user} />} />
                     <Route path='/*' element={<Posts user={user && user} />}/>
                 </Routes>
             </div>

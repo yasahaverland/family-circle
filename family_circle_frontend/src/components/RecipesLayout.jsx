@@ -5,7 +5,7 @@ import Masonry from 'react-masonry-css';
 import Spinner from './Spinner'
 import Recipe from "./Recipe";
 
-export default function RecipesLayout({recipes}){
+export default function RecipesLayout({recipes, user }){
     const [loading, setLoading] = useState(false)
     // const [ recipes, setRecipes] = useState()
 
@@ -21,7 +21,7 @@ export default function RecipesLayout({recipes}){
     return(
         <div>
             <Masonry className='flex animate-slide-fwd' breakpointCols={breakpointColumnsObj}>
-                {recipes?.map((recipe) => <Recipe key={recipe._id} recipe={recipe} className='w-max'/>)}
+                {recipes?.map((recipe) => <Recipe key={recipe._id} recipe={recipe} user={user && user} className='w-max'/>)}
             </Masonry>
         </div>
     )
