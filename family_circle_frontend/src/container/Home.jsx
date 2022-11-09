@@ -25,7 +25,7 @@ export default function Home(props) {
     
     const testUser = localStorage.getItem('user')
     const userInfo = props.user
-    console.log(testUser.image)
+    console.log(testUser?.image)
 
 
    useEffect(() => {
